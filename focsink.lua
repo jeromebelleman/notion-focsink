@@ -2,12 +2,14 @@
 -- Focus sink, a simple-minded focus stealing prevention
 --]]
 
+focsink = {}
+
 local NAME = 'focsink'
 local ATTR = 'sink'
 
 local oldname
 
-function anythingbuturxvt(prop, cwin, id)
+function focsink.anythingbuturxvt(prop, cwin, id)
     if id.class ~= 'URxvt' then
         return true
     end
@@ -15,10 +17,10 @@ end
 
 defwinprop{
     target = NAME,
-    match = anythingbuturxvt,
+    match = focsink.anythingbuturxvt,
 }
 
-function focsink_toggle() -- FIXME Not global please, use pkg and all
+function focsink.toggle() -- FIXME Not global please, use pkg and all
     -- Unset previous focus sink if any
     local oldfrm
     ioncore.region_i(function(f)
