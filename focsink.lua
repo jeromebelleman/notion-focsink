@@ -20,7 +20,7 @@ defwinprop{
     match = focsink.anythingbuturxvt,
 }
 
-function focsink.toggle() -- FIXME Not global please, use pkg and all
+function focsink.toggle()
     -- Unset previous focus sink if any
     local oldfrm
     ioncore.region_i(function(f)
